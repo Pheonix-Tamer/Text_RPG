@@ -10,7 +10,7 @@ class Room:
             "west": None
         }
 
-# To Push
+# To Pus
 
     def __repr__(self):
         return f"Room: {self.name}, {self.description}"

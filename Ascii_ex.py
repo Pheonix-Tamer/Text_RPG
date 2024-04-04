@@ -22,7 +22,7 @@ top_right = r"""-..--.
 /\/ /\
 \ \/\ \
 """
-#To Push
+#To Pus
 components = top_left.splitlines()
 # print(components)
 

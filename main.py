@@ -55,7 +55,7 @@ def title_screen_options():
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-#To Push
+#To Pus
 
 
 def help_menu():
