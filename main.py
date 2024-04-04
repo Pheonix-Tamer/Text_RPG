@@ -3,6 +3,7 @@ import Title_Screen_text
 from Title_Screen_text import print_title_screen
 from Rooms import *
 
+import inflect
 import cmd
 import textwrap
 import sys
@@ -12,6 +13,8 @@ import random
 
 screen_width = 116
 
+k = inflect.engine()
+
 
 def main():
     os.system(f'mode con: cols={screen_width} lines=30')
@@ -20,15 +23,16 @@ def main():
 
 # Player Setup #
 class Player:
-    def __init__(self):
-        self.name = ""
+    def __init__(self, name):
+        self.name = name
         self.hp = 0
         self.mp = 0
         self.status_effects = []
         self.class_type = "fighter"
+        self.weapon = None
 
 
-myplayer = Player()
+# myplayer = Player()
 
 
 def title_screen_options():
@@ -55,7 +59,6 @@ def title_screen_options():
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-#To Pus
 
 
 def help_menu():
@@ -84,8 +87,10 @@ def start_game():
 def player_start():
     clear_screen()
     p_name = input(f"What is your hero's name?\n> ")
-    # p = Player(p_name)
-    print(f"Welcome {p_name}")
+    p = Player(p_name)
+    print(f"Welcome {p.name} to the adventure!!\nYou are a {p.class_type}")
+    p.hp = 20
+    p.mp = 10
 
 
 
@@ -103,7 +108,8 @@ def game_logic():
         elif response == "look":
             for key in location.adjacent.keys():
                 if location.adjacent[key] is not None:
-                    print(f"To the {key} you see a(n) {location.adjacent[key]}")
+                    # print(f"To the {key} you see a(n) {location.adjacent[key].name.lower()}")
+                    print(f"To the {key} you see", k.an(location.adjacent[key].name.lower()))
         # if response == "north":
         #     location = location.north
         # elif response == "south":

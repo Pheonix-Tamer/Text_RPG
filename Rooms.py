@@ -10,10 +10,8 @@ class Room:
             "west": None
         }
 
-# To Pus
-
-    def __repr__(self):
-        return f"Room: {self.name}, {self.description}"
+    # def __repr__(self):
+    #     return f"Room: {self.name}, {self.description}"
 
 
 class ItemRoom(Room):
@@ -57,14 +55,14 @@ class BossRoom(CombatRoom):
 entrance = Room("Entrance", "A cave opening")
 goblin_quarters = CombatRoom("Goblin Quarters", "A room full of foul bedding for the goblins to sleep",
                              "goblin", 5)
-corridor_1 = Room("Corridor 1", "An unassuming corridor with no distinguishing features")
+corridor_1 = Room("Corridor", "An unassuming corridor with no distinguishing features")
 fake_chests = TrapRoom("Fake Chests", "A room filled with chests.", (1,4), entrance)
 guard_room = CombatRoom("Guard Room", "A small room with guard stations on both sides ready to pounce on intruders",
                         "goblin", 5)
 lonely_goblin = ItemRoom("Lonely Goblin", "A single sad looking goblin sits in the middle of the room playing with a dagger", ["Dagger"])
 treasure = ItemRoom("Treasure", "A room with many stolen items from nearby towns",
                     ["Health Potion", "Chestplate", "Helmet"])
-corridor_2 = Room("Corridor 2", "An unassuming corridor with no distinguishing features")
+corridor_2 = Room("Corridor", "An unassuming corridor with no distinguishing features")
 spike_pit = TrapRoom("Spike Pit", "A room with a poorly hidden pitfall blocking the way", (2, 8))
 boss_room = BossRoom("Boss Room", "The room where the leader of the goblins sleeps", "Gobo", 15, (2, 10))
 
