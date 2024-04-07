@@ -10,6 +10,9 @@ class Entity:
     def add_status_effect(self, x):
         self.status_effects.append(x)
 
+    def remove_status_effect(self, x):
+        self.status_effects.remove(x)
+
 
 class Monster(Entity):
     def __init__(self, name, hp, weapon: Weapon):
@@ -31,3 +34,9 @@ class Player(Entity):
         self.class_type = "fighter"
         self.curr_weapon = None
         self.inventory = []
+
+    def add_item(self, x):
+        self.inventory.append(x)
+
+    def remove_item(self, x):
+        self.inventory.remove(x)

@@ -1,14 +1,11 @@
 import random
+
+
 class Room:
     def __init__(self, name, description):
         self.name = name
         self.description = description
-        self.adjacent = {
-            "north": None,
-            "south": None,
-            "east": None,
-            "west": None
-        }
+        self.adjacent = {"north": None, "south": None, "east": None, "west": None}
 
     # def __repr__(self):
     #     return f"Room: {self.name}, {self.description}"
@@ -27,7 +24,9 @@ class ItemRoom(Room):
 
 
 class TrapRoom(Room):
-    def __init__(self, name, description, damage_range: tuple[int, int], destination=None):
+    def __init__(
+        self, name, description, damage_range: tuple[int, int], destination=None
+    ):
         super().__init__(name, description)
         self.damage_range = damage_range
         self.destination = destination
@@ -53,18 +52,37 @@ class BossRoom(CombatRoom):
 
 # Rooms in dungeon
 entrance = Room("Entrance", "A cave opening")
-goblin_quarters = CombatRoom("Goblin Quarters", "A room full of foul bedding for the goblins to sleep",
-                             "goblin", 5)
+goblin_quarters = CombatRoom(
+    "Goblin Quarters",
+    "A room full of foul bedding for the goblins to sleep",
+    "goblin",
+    5,
+)
 corridor_1 = Room("Corridor", "An unassuming corridor with no distinguishing features")
-fake_chests = TrapRoom("Fake Chests", "A room filled with chests.", (1,4), entrance)
-guard_room = CombatRoom("Guard Room", "A small room with guard stations on both sides ready to pounce on intruders",
-                        "goblin", 5)
-lonely_goblin = ItemRoom("Lonely Goblin", "A single sad looking goblin sits in the middle of the room playing with a dagger", ["Dagger"])
-treasure = ItemRoom("Treasure", "A room with many stolen items from nearby towns",
-                    ["Health Potion", "Chestplate", "Helmet"])
+fake_chests = TrapRoom("Fake Chests", "A room filled with chests.", (1, 4), entrance)
+guard_room = CombatRoom(
+    "Guard Room",
+    "A small room with guard stations on both sides ready to pounce on intruders",
+    "goblin",
+    5,
+)
+lonely_goblin = ItemRoom(
+    "Lonely Goblin",
+    "A single sad looking goblin sits in the middle of the room playing with a dagger",
+    ["dagger"],
+)
+treasure = ItemRoom(
+    "Treasure",
+    "A room with many stolen items from nearby towns",
+    ["health potion", "chestplate", "helmet"],
+)
 corridor_2 = Room("Corridor", "An unassuming corridor with no distinguishing features")
-spike_pit = TrapRoom("Spike Pit", "A room with a poorly hidden pitfall blocking the way", (2, 8))
-boss_room = BossRoom("Boss Room", "The room where the leader of the goblins sleeps", "Gobo", 15, (2, 10))
+spike_pit = TrapRoom(
+    "Spike Pit", "A room with a poorly hidden pitfall blocking the way", (2, 8)
+)
+boss_room = BossRoom(
+    "Boss Room", "The room where the leader of the goblins sleeps", "Gobo", 15, (2, 10)
+)
 
 # Setting directions
 entrance.adjacent["north"] = corridor_1
