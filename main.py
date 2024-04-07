@@ -1,15 +1,12 @@
 # Text RPG
 import Title_Screen_text
+from Characters import Player
 from Title_Screen_text import print_title_screen
 from Rooms import *
 
 import inflect
-import cmd
-import textwrap
 import sys
 import os
-import time
-import random
 
 screen_width = 116
 
@@ -22,14 +19,6 @@ def main():
 
 
 # Player Setup #
-class Player:
-    def __init__(self, name):
-        self.name = name
-        self.hp = 0
-        self.mp = 0
-        self.status_effects = []
-        self.class_type = "fighter"
-        self.weapon = None
 
 
 # myplayer = Player()

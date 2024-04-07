@@ -15,9 +15,9 @@ class Room:
 
 
 class ItemRoom(Room):
-    def __init__(self, name, description, items=[]):
+    def __init__(self, name, description, items=None):
         super().__init__(name, description)
-        self.items = items
+        self.items = [] if items is None else items
 
     def add_item(self, x):
         self.items.append(x)
